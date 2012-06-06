@@ -1,0 +1,6 @@
+<layers>
+ <layer
+     name="collective.rating"
+     interface="collective.rating.interfaces.IAddonSpecific"
+     />
+</layers>
