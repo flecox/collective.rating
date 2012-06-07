@@ -1,27 +1,41 @@
-/**
- * Your Javascript code goes here.
- *
- * This file is deployed as ++resource++collective.rating/main.js on your site 
- * and automatically included in merge bundles via jsregistry.xml.
- *
- * More info
- *
- * http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/javascript.html
- *
- */
+function collectiveRatingRate(starCls) {
+  var stars = $(starCls);
+  stars.addClass("star");
+  stars.hover(function() {
+    var star = $(this);
+    var prev = star.prev();
+    while(prev.length && prev.hasClass("star")) {
+      prev.addClass("star-hover");
+      prev = prev.prev();
+    }
+  },function() {
+      $(".star-hover").removeClass("star-hover");
+  });
+  stars.click(function(e) {
+    e.preventDefault();
+    var star = $(this);
+    var url = star.attr("href");
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      data: {'rate_from':'ajax'},
+      success: function(result, status) {
+          if(status === "success") {
+            var clickedStar = $($(starCls)[result['number']]);
+            var prev = clickedStar.prev();
+            while(prev.length && prev.hasClass("star")) {
+              prev.addClass("star-clicked");
+              prev = prev.prev();
+            }
+            clickedStar.addClass("star-clicked");
+        }
+      }
+    });
+    return false;
+  })
+}
 
- /*global window,document*/
-
-(function($) {
-     
-     "use strict";
-
-
-     $(document).ready(function() {
-
-        // Page has been loaded, put your custom JS logic here
-
-     });
-
-})(jQuery);
-
+  
+$(document).ready(function() {
+    collectiveRatingRate("#form-widgets-IRating-ratings a");
+});

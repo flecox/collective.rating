@@ -8,3 +8,39 @@
  * http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/css.html
  */ 
 
+#form-widgets-IRating-ratings a {
+    margin-left: 0px;
+}
+
+#form-widgets-IRating-ratings .star-rated {
+    background: url("++resource++collective.rating/rated-star.png") no-repeat;
+    padding-left: 7px;
+}
+
+#form-widgets-IRating-ratings .star-not-rated {
+    background: url("++resource++collective.rating/unrated-star.png") no-repeat;
+    padding-left: 7px;
+}
+
+#form-widgets-IRating-ratings a:hover {
+    background: url("++resource++collective.rating/rated-star.png") no-repeat;
+}
+
+#form-widgets-IRating-ratings a.star-hover {
+    background: url("++resource++collective.rating/rated-star.png") no-repeat;
+}
+
+#form-widgets-IRating-ratings a.star-clicked {
+    background: url("++resource++collective.rating/rated-star.png") no-repeat;
+}
+
+#content #form-widgets-IRating-ratings a:link {
+    border-bottom: 0;
+    color: #FFFFFF;
+}
+#form-widgets-IRating-ratings .star-text {
+    visibility: hidden;
+    height: 10px;
+    width: 10px;
+    cursor:pointer;
+}

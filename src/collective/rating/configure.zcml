@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"  
     xmlns:browser="http://namespaces.zope.org/browser"    
@@ -11,6 +12,12 @@
   <five:registerPackage package="." />
   <includeDependencies package="." />
 
+
+  <include package="plone.behavior" file="meta.zcml" />
+  
+  <include package="plone.directives.form" file="meta.zcml" />
+  <include package="plone.directives.form" />
+  
   <grok:grok package="." />
 
   <i18n:registerTranslations directory="locales" />
@@ -29,4 +36,17 @@
       type="zope.publisher.interfaces.browser.IBrowserSkinType"
       name="collective.rating"
       />
+
+    <plone:behavior
+          title="rating"
+          description="adds ratings"
+          provides=".behavior.IRating"
+          factory=".behavior.Rating"
+          for="plone.dexterity.interfaces.IDexterityContent"
+          />
+    
+  <adapter
+      factory=".widgets.rating_widget.RatingDataConverter"
+      />
+      
 </configure>

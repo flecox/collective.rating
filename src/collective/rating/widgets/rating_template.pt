@@ -1,0 +1,10 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      tal:omit-tag="">
+    <div tal:attributes="id view/id">
+      <tal:stars tal:repeat="number view/stars">
+      <a tal:attributes="href python:view.rate_url(number);
+                      class python:view.is_rated(number) and 'star-rated' or 'star-not-rated'"><span class="star-text">*</span></a>
+      </tal:stars>
+    </div>
+</html>
