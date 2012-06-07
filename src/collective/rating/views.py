@@ -27,6 +27,8 @@ class RatingsView(grok.View):
             pass
         if rating and 'rate' in self.request.keys():
             user = self.get_user_id()
+            if not rating.ratings:
+                rating.ratings = {}
             rating.ratings[user] = int(self.request['rate'])
             self.context.ratings[user] = int(self.request['rate'])
         self.rating = rating.get_rating()

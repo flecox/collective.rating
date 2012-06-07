@@ -54,7 +54,9 @@ class RatingDataConverter(BaseDataConverter):
 
     def toWidgetValue(self, value):
         """See interfaces.IDataConverter"""
-        return self.get_rating(value.values())
+        if value:
+            return self.get_rating(value.values())
+        return 0
 
     def toFieldValue(self, value):
         """See interfaces.IDataConverter"""

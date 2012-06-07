@@ -21,11 +21,18 @@ function collectiveRatingRate(starCls) {
       data: {'rate_from':'ajax'},
       success: function(result, status) {
           if(status === "success") {
-            var clickedStar = $($(starCls)[result['number']]);
+            var clickedStar = $($(starCls)[result['number']-1]);
             var prev = clickedStar.prev();
+            var next = clickedStar.next();
             while(prev.length && prev.hasClass("star")) {
               prev.addClass("star-clicked");
               prev = prev.prev();
+            }
+            while(next.length && next.hasClass("star")) {
+              next.removeClass("star-clicked");
+              next.removeClass("star-rated");
+              next.addClass("star-not-rated");
+              next = next.next();
             }
             clickedStar.addClass("star-clicked");
         }
