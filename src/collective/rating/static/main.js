@@ -41,8 +41,3 @@ function collectiveRatingRate(starCls) {
     return false;
   })
 }
-
-  
-$(document).ready(function() {
-    collectiveRatingRate("#form-widgets-IRating-ratings a");
-});

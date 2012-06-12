@@ -16,8 +16,17 @@ class RatingWidget(TextWidget):
     zope.interface.implementsOnly(IRatingWidget)
     
     template = ViewPageTemplateFile('rating_template.pt')
-    
+
     klass = u'rating-widget'
+    
+    js_template = """
+        $(document).ready(function() {
+            collectiveRatingRate("#%(id)s a");
+        });
+    """
+    
+    def js(self):
+        return self.js_template % dict(id=self.id)
     
     def render(self):
         return self.template(self)

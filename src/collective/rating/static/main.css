@@ -8,36 +8,44 @@
  * http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/css.html
  */ 
 
+.rating-field a,
 #form-widgets-IRating-ratings a {
     margin-left: 0px;
 }
 
+.rating-field .star-rated, 
 #form-widgets-IRating-ratings .star-rated {
     background: url("++resource++collective.rating/rated-star.png") no-repeat;
     padding-left: 7px;
 }
-
+.rating-field .star-not-rated,
 #form-widgets-IRating-ratings .star-not-rated {
     background: url("++resource++collective.rating/unrated-star.png") no-repeat;
     padding-left: 7px;
 }
 
+.rating-field a:hover,
 #form-widgets-IRating-ratings a:hover {
     background: url("++resource++collective.rating/rated-star.png") no-repeat;
 }
 
+.rating-field a.star-hover,
 #form-widgets-IRating-ratings a.star-hover {
     background: url("++resource++collective.rating/rated-star.png") no-repeat;
 }
 
+.rating-field a.star-clicked,
 #form-widgets-IRating-ratings a.star-clicked {
     background: url("++resource++collective.rating/rated-star.png") no-repeat;
 }
 
+.rating-field a:link,
 #content #form-widgets-IRating-ratings a:link {
     border-bottom: 0;
     color: #FFFFFF;
 }
+
+.rating-field .star-text,
 #form-widgets-IRating-ratings .star-text {
     visibility: hidden;
     height: 10px;

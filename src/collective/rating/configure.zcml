@@ -38,7 +38,7 @@
       />
 
     <plone:behavior
-          title="rating"
+          title="collective.rating"
           description="adds ratings"
           provides=".behavior.IRating"
           factory=".behavior.Rating"
